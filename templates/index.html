@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GET A LOAN</title>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+        integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="background-color: black;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/" style="font-size: x-large;">GET A LOAN</a>
+    </header>
+
+    <div class="container border border-secondary rounded" style="background-color:#f9f9f9;border-color:#d3d3d3;border: width 10px;">
+        <form name=f1 method=post action="/formurl">
+            <fieldset>
+                <legend style="font-size: 24px;padding:5px;">Please fill out this form to view your loan's approval probability</legend>
+                <div class="form-group">
+                    <label style="font-size: 14px;">Loan Amount '000s</label>
+                    <input class="form-control" name="loanamount">
+                    <label style="font-size: 14px;">Your anual Income '000s</label>
+                    <input  class="form-control" name="income">
+                </div>
+                <div class="form-group">
+                    <label style="font-size: 14px;">Select Type of Loan</label>
+                    <select  class="form-control" style="font-size: 13px;" name="type">
+                        <option value='1000'>Conventional</option>
+                        <option value='0100'>FHA Insured</option>
+                        <option value='0010'>VA-guaranteed</option>
+                        <option value='0001'>FSA/RHS (Farm Service Agency or Rural Housing Service)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-size: 14px;">Applicant Ethnicity</label>
+                            <select  class="form-control" style="font-size: 13px;" name="aeth">
+                                <option value='10'>Hispanic or Latino</option>
+                                <option value='01'>Not Hispanic or Latino</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-size: 14px;">Co-Applicant Ethnicity</label>
+                            <select  class="form-control" style="font-size: 13px;" name="coaeth">
+                                <option value='100'>Hispanic or Latino</option>
+                                <option value='010'>Not Hispanic or Lation</option>
+                                <option value='001'>No co-applicant</option>
+                            </select>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-size: 14px;">Applicant Race</label>
+                            <select  class="form-control" style="font-size: 13px;" name="arac">
+                                <option value='10000'>American Indian or Alaska Native</option>
+                                <option value='01000'>Asian</option>
+                                <option value='00100'>Black or African American</option>
+                                <option value='00010'>Native Hawaiian or Other Pacific Islander</option>
+                                <option value='00001'>White</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-size: 14px;">Co-Applicant Race</label>
+                            <select  class="form-control" style="font-size: 13px;" name="coarac">
+                                <option value='100000'>American Indian or Alaska Native</option>
+                                <option value='010000'>Asian</option>
+                                <option value='001000'>Black or African American</option>
+                                <option value='000100'>Native Hawaiian or Other Pacific Islander</option>
+                                <option value='000010'>White</option>
+                                <option value='000001'>No co-applicant</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-size: 14px;">Applicant Sex</label>
+                            <select  class="form-control" style="font-size: 13px;" name="asex">
+                                <option value='10'>Male</option>
+                                <option value='01'>Female</option>
+                            </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label style="font-size: 14px;">Co-Applicant Sex</label>
+                        <select  class="form-control" style="font-size: 13px;" name="coasex">
+                            <option value='100'>Male</option>
+                            <option value='010'>Female</option>
+                            <option value='001'>No co-applicant </option>
+                        </select>
+                    </div>
+                </div>
+                <input class="btn btn-success btn-lg" type="submit" value="Submit">
+
+            </fieldset>
+       </form>
+
+
+
+
+
+
+        <!-- <form name=f1 method=post action=form-submit.py>
+            <table>
+                <tr>
+                    <td>Loan type</td>
+                    <td> <select name="loantype">
+                            <option value='1'>Conventional</option>
+                            <option value='2'>Non-Conventional</option>
+                            <option value='3'>Other</option>
+                        </select>
+                    </td> -->
+        <!-- </tr>
+                <tr>
+                    <td>Sex</td>
+                    <td> <input type=radio name=r1 value=1> Male
+                        <input type=radio name=r1 value=2> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Loan Amount </td>
+                    <td><input type=interger name=loan>
+                    <td>
+                </tr>
+                <tr>
+                    <td>Anual Income</td>
+                    <td> <input type=interger name=income></td>
+                </tr>
+                <tr>
+                    <td><input type=submit value=Submit href="/loandata/api"></td>
+                    <td> </td>
+                </tr> -->
+        <!-- </table>
+        </form> -->
+        <p href="/loandata/api">"/loandata/api"</p>
+    </div>
+    </div>
+</body>

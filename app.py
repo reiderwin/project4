@@ -15,7 +15,7 @@ from flask import Flask, jsonify, render_template, request
 SERVER = '127.0.0.1'
 DATABASE = 'project4'
 USERNAME = 'postgres'
-PASSWORD_2 = 'postgres'
+PASSWORD_2 = 'Butt'
 DATABASE_CONN = f'postgresql://{USERNAME}:{PASSWORD_2}@{SERVER}/{DATABASE}'
 engine = create_engine(DATABASE_CONN)
 #################################################
@@ -81,6 +81,7 @@ def get_values():
     predict = model.predict(data)  # runs model on the data
     prob= model.predict_proba(data)
 
+
     if predict == [1]:
         prediction = "We predict success, congratulations!"
     else:
@@ -98,13 +99,16 @@ def get_values():
     print(chance)
 
             
-
+    model_result = {
+        "prediction":prediction,
+        "probability":str((chance*100)) + '%'
+    }
     # Load he model and feed the input to the model to get the result
     # model_result = michales_fantastic_model_result
 
     # Render the result through a html page
-    # return render_template("result.html", result = model_result) 
-    return render_template("index.html")    
+    return render_template("result.html", result = model_result) 
+    #return render_template("index.html",)    
 
 @app.route("/loandata/api")
 def data_crops():
